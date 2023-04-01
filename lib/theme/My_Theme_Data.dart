@@ -7,6 +7,7 @@ class MyThemeData {
     primaryColor: PrimaryColor,
     appBarTheme: AppBarTheme(
       centerTitle: true,
+      iconTheme: IconThemeData(color: Colors.black),
       color: Colors.transparent,
       elevation: 0,
     ),

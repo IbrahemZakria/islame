@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:islame/taps/quran/quranSuraItem.dart';
+import 'package:islame/taps/quran/suraDetailsCntent.dart';
 import 'package:islame/theme/My_Theme_Data.dart';
 
 class quranScreen extends StatelessWidget {
@@ -133,7 +134,10 @@ class quranScreen extends StatelessWidget {
         Expanded(
             child: ListView.separated(
                 itemBuilder: (context, index) {
-                  return quranSuraItem(name: names[index]);
+                  return quranSuraItem(
+                    index: index,
+                    name: names[index],
+                  );
                 },
                 separatorBuilder: (context, index) {
                   return Divider(
