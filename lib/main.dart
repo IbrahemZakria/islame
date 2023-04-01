@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:islame/homePage.dart';
+import 'package:islame/taps/hades/hadesConent.dart';
+import 'package:islame/taps/quran/suraDetailsCntent.dart';
 import 'package:islame/theme/My_Theme_Data.dart';
 
 void main() {
@@ -14,9 +16,11 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       routes: {
-        homePage().id: (context) => homePage(),
+        homePage.id: (context) => homePage(),
+        hadesConent.id: (context) => hadesConent(),
+        suraDEtailsContent.id: (context) => suraDEtailsContent(),
       },
-      initialRoute: homePage().id,
+      initialRoute: homePage.id,
       theme: MyThemeData.Lighttheme,
       darkTheme: MyThemeData.darkTheme,
     );

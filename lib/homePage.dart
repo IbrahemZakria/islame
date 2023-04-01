@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-import 'package:islame/taps/hadesScreen.dart';
+import 'package:islame/taps/hades/hadesScreen.dart';
 import 'package:islame/taps/quran/quranScreen.dart';
 import 'package:islame/taps/radioScreen.dart';
 import 'package:islame/taps/sephaScreen.dart';
 import 'package:islame/theme/My_Theme_Data.dart';
 
 class homePage extends StatefulWidget {
-  final String id = 'home page';
+  static String id = 'home page';
 
   @override
   State<homePage> createState() => _homePageState();
