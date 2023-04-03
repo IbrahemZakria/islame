@@ -52,15 +52,13 @@ class _hadesConentState extends State<hadesConent> {
 
   Future<void> loadHades(int index) async {
     String content = await rootBundle.loadString('assets/fiels/ahadeth .txt');
-    List<String> hadeses = content.trim().split('#');
+    content.trim();
+    List<String> hadeses = content.split('#\r\n');
     List<String> hadesLiens = hadeses[index].split('\n');
     title = hadesLiens[0];
     hadesLiens.removeAt(0);
     hadesliens = hadesLiens;
-    print('--------------');
-    print(hadesLiens);
 
-    print(title);
     setState(() {});
   }
 }
