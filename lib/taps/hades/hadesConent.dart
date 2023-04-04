@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:islame/provider/myProvider.dart';
 import 'package:islame/taps/hades/hadesItem.dart';
+import 'package:provider/provider.dart';
+
+import '../../theme/My_Theme_Data.dart';
 
 class hadesConent extends StatefulWidget {
   static String id = 'hadesConent';
@@ -16,6 +20,7 @@ class _hadesConentState extends State<hadesConent> {
 
   @override
   Widget build(BuildContext context) {
+    var pro = Provider.of<MyProvider>(context);
     var hadesItemArgs =
         ModalRoute.of(context)!.settings.arguments as hadesModul;
     if (hadesliens.isEmpty) {
@@ -24,7 +29,9 @@ class _hadesConentState extends State<hadesConent> {
 
     return Stack(children: [
       Image.asset(
-        'assets/images/mainbg.png',
+        pro.apptheme == MyThemeData.Lighttheme
+            ? 'assets/images/mainbg.png'
+            : 'assets/images/darkbg.png',
         width: double.infinity,
         height: double.infinity,
         fit: BoxFit.fill,

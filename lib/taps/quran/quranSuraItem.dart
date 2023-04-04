@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:islame/taps/quran/suraDetailsCntent.dart';
 
 class quranSuraItem extends StatelessWidget {

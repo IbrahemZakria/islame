@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
+import 'package:provider/provider.dart';
+
+import '../../provider/myProvider.dart';
+import '../../theme/My_Theme_Data.dart';
 
 class suraDEtailsContent extends StatefulWidget {
   static const String id = 'suraDEtailsContent';
@@ -15,6 +17,8 @@ class _suraDEtailsContentState extends State<suraDEtailsContent> {
 
   @override
   Widget build(BuildContext context) {
+    var pro = Provider.of<MyProvider>(context);
+
     var suraDetailsArgs =
         ModalRoute.of(context)!.settings.arguments as suraNameModel;
     if (verses.isEmpty) {
@@ -23,7 +27,9 @@ class _suraDEtailsContentState extends State<suraDEtailsContent> {
 
     return Stack(children: [
       Image.asset(
-        'assets/images/mainbg.png',
+        pro.apptheme == MyThemeData.Lighttheme
+            ? 'assets/images/mainbg.png'
+            : 'assets/images/darkbg.png',
         width: double.infinity,
         height: double.infinity,
         fit: BoxFit.fill,

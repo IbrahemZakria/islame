@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:islame/provider/myProvider.dart';
 
 import 'package:islame/taps/hades/hadesScreen.dart';
 import 'package:islame/taps/quran/quranScreen.dart';
 import 'package:islame/taps/radioScreen.dart';
 import 'package:islame/taps/sephaScreen.dart';
+import 'package:islame/taps/setting/settingsScreen.dart';
 import 'package:islame/theme/My_Theme_Data.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:provider/provider.dart';
 
 class homePage extends StatefulWidget {
   static String id = 'home page';
@@ -20,15 +24,19 @@ class _homePageState extends State<homePage> {
     radioScreen(),
     sephaScreen(),
     hadesScreen(),
-    quranScreen()
+    quranScreen(),
+    settingsScreen()
   ];
 
   @override
   Widget build(BuildContext context) {
+    var pro = Provider.of<MyProvider>(context);
     return Stack(
       children: [
         Image.asset(
-          'assets/images/mainbg.png',
+          pro.apptheme == MyThemeData.Lighttheme
+              ? 'assets/images/mainbg.png'
+              : 'assets/images/darkbg.png',
           width: double.infinity,
           height: double.infinity,
           fit: BoxFit.fill,
@@ -36,27 +44,32 @@ class _homePageState extends State<homePage> {
         Scaffold(
           appBar: AppBar(
             title: Text(
-              'islame',
+              AppLocalizations.of(context)!.islame,
               style: Theme.of(context).textTheme.headline1,
             ),
           ),
           bottomNavigationBar: Theme(
-            data: Theme.of(context)
-                .copyWith(canvasColor: MyThemeData.PrimaryColor),
+            data: Theme.of(context).copyWith(
+                canvasColor: pro.apptheme == MyThemeData.Lighttheme
+                    ? MyThemeData.PrimaryColor
+                    : MyThemeData.darkaccentColor),
             child: BottomNavigationBar(
               items: [
                 BottomNavigationBarItem(
                     icon: ImageIcon(AssetImage('assets/images/radio.png')),
-                    label: 'radio'),
+                    label: AppLocalizations.of(context)!.radio),
                 BottomNavigationBarItem(
                     icon: ImageIcon(AssetImage('assets/images/sebha.png')),
-                    label: 'sebha'),
+                    label: AppLocalizations.of(context)!.sebha),
                 BottomNavigationBarItem(
                     icon: ImageIcon(AssetImage('assets/images/hades.png')),
-                    label: 'hades'),
+                    label: AppLocalizations.of(context)!.hades),
                 BottomNavigationBarItem(
                     icon: ImageIcon(AssetImage('assets/images/quran.png')),
-                    label: 'quran'),
+                    label: AppLocalizations.of(context)!.quran),
+                BottomNavigationBarItem(
+                    icon: Icon(Icons.settings),
+                    label: AppLocalizations.of(context)!.setting),
               ],
               onTap: (value) {
                 currentIndex = value;
